@@ -151,9 +151,13 @@ h_t = tanh(x_tW_x + h_{t-1}W_h + b)
 
 deep_learning_project/
 │
+
 ├── ann.py # Artificial Neural Network
+
 ├── cnn.py # Convolutional Neural Network
+
 ├── rnn.py # Recurrent Neural Network
+
 └── README.md
 
 
@@ -168,7 +172,8 @@ python rnn.py
 ```
 
 ANN → Final Prediction: 0.98
+
 CNN → Convolution Output: 3.66
+
 RNN → Final Prediction: 0.92
 
-### 🔷 ANN (Feedforward Network)
