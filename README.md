@@ -10,6 +10,7 @@
 ## 👥 Team Members
 
 - **Ronith Salian**
+- **Rajath D Shetty**
 
 ---
 
@@ -27,6 +28,7 @@ All models are implemented **from scratch using NumPy**, focusing on **clear und
 
 ## 🧩 Model Intuition
 Input → Hidden Layer → Output
+
 ● -------- ● -------- ●
 
 ✔ Fully connected layers  
@@ -36,6 +38,7 @@ Input → Hidden Layer → Output
 
 ### 🔷 CNN (Feature Extraction)
 Input → [3×3 Filter] → Feature → Output
+
 ⬛⬛⬛
 ⬛⬛⬛
 
