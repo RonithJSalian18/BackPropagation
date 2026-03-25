@@ -5,7 +5,7 @@ class RNN:
     def __init__(self, input_dim, hidden_dim, output_dim):
         # Weights
         self.Wxh = np.random.randn(input_dim, hidden_dim) * 0.1
-        self.Whh = np.random.randn(hidden_dim, hidden_dim) * 0.1
+        self.Whh = np.random.randn(hidden_dim, hidden_dim) * 0.1 #Previous Hidden State → Current Hidden State
         self.Why = np.random.randn(hidden_dim, output_dim) * 0.1
 
         # Bias
@@ -20,18 +20,21 @@ class RNN:
         return 1 / (1 + np.exp(-x))
 
     # 🔷 Forward Pass
+    #Takes a sequence input
+    #Processes each step using memory (hidden state)
+    #Produces a final output
     def forward(self, X):
         self.inputs = X
         self.h_states = []
 
-        h = np.zeros((1, self.Wxh.shape[1]))  # initial hidden state
+        h = np.zeros((1, self.Wxh.shape[1]))  # initial hidden state value will be 1
 
         # Process sequence step-by-step
         for t in range(len(X)):
             x_t = X[t].reshape(1, -1)
 
-            h = self.tanh(x_t @ self.Wxh + h @ self.Whh + self.bh)
-            self.h_states.append(h)
+            h = self.tanh(x_t @ self.Wxh + h @ self.Whh + self.bh) #hidden value is calculated
+            self.h_states.append(h) #appended to the hidden storage
 
         self.final_h = h
 
