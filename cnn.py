@@ -9,20 +9,20 @@ class CNN:
 
     # 🔷 Activation functions
     def relu(self, x):
-        return max(0, x)
+        return max(0, x) #positive keep it negative removes it
 
     def relu_derivative(self, x):
-        return 1 if x > 0 else 0
+        return 1 if x > 0 else 0 #input > 0 returns 1 else 0
 
     def sigmoid(self, x):
-        return 1 / (1 + np.exp(-x))
+        return 1 / (1 + np.exp(-x)) #Converts input into 0 to 1 range
 
     # 🔷 Forward
     def forward(self, X):
         self.X = X
 
         # Convolution
-        self.conv = float(np.sum(X * self.kernel))
+        self.conv = float(np.sum(X * self.kernel)) #feature extraction of image
         print("Convolution output:", self.conv)
 
         # ReLU
