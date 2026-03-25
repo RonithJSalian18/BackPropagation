@@ -13,10 +13,10 @@ class ANN:
 
     # Activation functions
     def sigmoid(self, x):
-        return 1 / (1 + np.exp(-x))
+        return 1 / (1 + np.exp(-x)) #output between 0 and 1
 
     def tanh(self, x):
-        return np.tanh(x)
+        return np.tanh(x) #Output between -1 and 1
 
     # 🔷 Forward Pass
     def forward(self, X):
@@ -24,17 +24,17 @@ class ANN:
 
         # Input → Hidden
         self.z1 = np.dot(X, self.W1) + self.b1
-        self.a1 = self.tanh(self.z1)
+        self.a1 = self.tanh(self.z1) # tanh is used in hidden layer to learn complex patterns
 
         # Hidden → Output
         self.z2 = np.dot(self.a1, self.W2) + self.b2
-        self.output = self.sigmoid(self.z2)
+        self.output = self.sigmoid(self.z2) #sigmoid is used in output layer to give probability (0 to 1)
 
         return self.output
 
     # 🔷 Loss Function (MSE)
     def loss(self, y):
-        return np.mean((y - self.output) ** 2)
+        return np.mean((y - self.output) ** 2) #difference between actual and predicted values
 
     # 🔷 Backpropagation
     def backward(self, y, lr):
